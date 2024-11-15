@@ -33,40 +33,36 @@ if [ -d "$HOME/.bash_it" ]; then
 fi
 
 # Remove basher installation
-if command -v basher &>/dev/null; then
+if [ -d "$HOME/.basher" ]; then
 	log_task "Uninstalling basher..."
 	rm -rf "$HOME/.basher"
-	# Remove basher from PATH if added in the .bashrc or other shell profile
-	sed -i '' '/basher/d' ~/.bashrc || true
-	sed -i '' '/basher/d' ~/.bash_profile || true
 fi
 
 # Restore original .bash_profile if a backup exists
 log_task "Restoring .bash_profile..."
+rm -f ~/.bash_profile
 if [ -f "$backup_dir/.bash_profile.back" ]; then
-	rm -f ~/.bash_profile
 	mv "$backup_dir/.bash_profile.back" ~/.bash_profile
-else
-	rm -f ~/.bash_profile
 fi
 
 # Restore original .bashrc if a backup exists
 log_task "Restoring .bashrc..."
+
+rm -f ~/.bashrc
 if [ -f "$backup_dir/.bashrc.back" ]; then
-	rm -f ~/.bashrc
 	mv "$backup_dir/.bashrc.back" ~/.bashrc
-else
-	rm -f ~/.bashrc
 fi
 
 # Restore bash-it enabled and custom folders
 log_task "Restoring bash-it configurations..."
+
+rm -rf ~/.bash_it/enabled
 if [ -f "$backup_dir/enabled.back" ]; then
-	rm -rf ~/.bash_it/enabled
 	mv "$backup_dir/enabled.back" ~/.bash_it/enabled
 fi
+
+rm -rf ~/.bash_it/custom
 if [ -f "$backup_dir/custom.back" ]; then
-	rm -rf ~/.bash_it/custom
 	mv "$backup_dir/custom.back" ~/.bash_it/custom
 fi
 

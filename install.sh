@@ -41,13 +41,13 @@ log_task "Setting up bash_it configurations..."
 if [ -d "$HOME/.bash_it/enabled" ]; then
 	mv "$HOME/.bash_it/enabled" "$backup_dir/enabled.bak"
 fi
-ln -sf $script_dir/bash_it/enabled ~/.bash_it/
+ln -sf $script_dir/bash_it/enabled $HOME/.bash_it/
 
 if ! [ -d $backup_dir/custom.bak ]; then
 	mkdir $backup_dir/custom.bak
 fi
-mv ~/.bash_it/custom/* $backup_dir/custom.bak/ || true
-ln -sf $script_dir/bash_it/custom/* ~/.bash_it/custom/
+mv $HOME/.bash_it/custom/* $backup_dir/custom.bak/ || true
+ln -sf $script_dir/bash_it/custom/* $HOME/.bash_it/custom/
 
 # Install basher if not already installed
 if ! command -v basher &>/dev/null && [ ! -d "$HOME/.basher" ]; then
@@ -60,7 +60,7 @@ log_task "Install dotfiles..."
 for dotfile in $script_dir/home/.*; do
 	target_file=$(basename -- "$dotfile")
 
-	log_task "Backing up ~/$target_file to $backup_dir/home/$target_file.bak"
+	log_task "Backing up $HOME/$target_file to $backup_dir/home/$target_file.bak"
 	if ! [ -f $backup_dir/home ]; then
 		mkdir -p "$backup_dir/home"
 	fi

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Load .bashrc
-[[ -f ~/.bashrc ]] && source ~/.bashrc
+[[ -f $HOME/.bashrc ]] && source $HOME/.bashrc
 
 # If not running interactively, don't do anything
 case $- in
@@ -10,7 +10,7 @@ case $- in
 esac
 
 # Path to the bash it configuration
-export BASH_IT="/Users/suptest/.bash_it"
+export BASH_IT="$HOME/.bash_it"
 
 # Lock and Load a custom theme file.
 # Leave empty to disable theming.
@@ -74,7 +74,7 @@ export SCM_CHECK=true
 
 # Set vcprompt executable path for scm advance info in prompt (demula theme)
 # https://github.com/djl/vcprompt
-#export VCPROMPT_EXECUTABLE=~/.vcprompt/bin/vcprompt
+#export VCPROMPT_EXECUTABLE=$HOME/.vcprompt/bin/vcprompt
 
 # (Advanced): Uncomment this to make Bash-it reload itself automatically
 # after enabling or disabling aliases, plugins, and completions.
@@ -90,7 +90,7 @@ source "$BASH_IT"/bash_it.sh
 eval "$(/opt/homebrew/bin/brew shellenv bash)"
 
 # Load .bash_aliases
-[[ -f ~/.bash_aliases ]] && source ~/.bash_aliases
+[[ -f $HOME/.bash_aliases ]] && source $HOME/.bash_aliases
 
 # Load .bash_login to complete
-[[ -f ~/.bash_login ]] && source ~/.bash_login
+[[ -f $HOME/.bash_login ]] && source $HOME/.bash_login

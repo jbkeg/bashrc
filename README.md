@@ -1,6 +1,6 @@
 # bashrc
 
-Jons' personal bash configuration
+Jons' personal bash configuration enhanced with [Bash-it](https://bash-it.readthedocs.io/en/latest/#) and [Basher](https://www.basher.it/)
 
 ## Table of contents
 
@@ -10,6 +10,7 @@ Jons' personal bash configuration
     - [Pre-Install](#pre-install)
     - [Install](#install)
     - [Post-Install](#post-install)
+    - [Uninstallation](#uninstallation)
 
 ## Installation
 
@@ -22,17 +23,19 @@ Jons' personal bash configuration
 
 Run installation script
 
-> Commnand Options
->
-> - SHIT_DIR: Bash it install target directory (defaults: ~/.bash_it)
-> - BAHSER_DIR: Basher install target directory (defaults: ~/.basher)
-
 ```bash
 ./install.sh
 ```
 
-Above command will install `bash it` and `basher` at target directory. and symlink `.bashrc`, `.bash_profile` and `custom scripts`.
+Above command will install `bash it` and `basher` at $HOME directory. and symlink `.bashrc`, `.bash_profile` and `other dotfiles`.
 
 ### Post-Install
 
 Enable and disable bash it plugins, completions and aliases.
+
+### Uninstallation
+
+```bash
+./uninstall.sh
+rm -rf /path/to/bashrc
+```
