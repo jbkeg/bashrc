@@ -37,5 +37,5 @@ Enable and disable bash it plugins, completions and aliases.
 
 ```bash
 ./uninstall.sh
-rm -rf /path/to/bashrc
+rm -rf /path/to/bashrc/repo
 ```
