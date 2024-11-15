@@ -38,33 +38,17 @@ if [ -d "$HOME/.basher" ]; then
 	rm -rf "$HOME/.basher"
 fi
 
-# Restore original .bash_profile if a backup exists
-log_task "Restoring .bash_profile..."
-rm -f ~/.bash_profile
-if [ -f "$backup_dir/.bash_profile.back" ]; then
-	mv "$backup_dir/.bash_profile.back" ~/.bash_profile
-fi
+# Restore dotfiles
+log_task "Restoring dotfiles..."
+for dotfile in $script_dir/home/.*; do
+	target_file=$(basename -- "$dotfile")
 
-# Restore original .bashrc if a backup exists
-log_task "Restoring .bashrc..."
-
-rm -f ~/.bashrc
-if [ -f "$backup_dir/.bashrc.back" ]; then
-	mv "$backup_dir/.bashrc.back" ~/.bashrc
-fi
-
-# Restore bash-it enabled and custom folders
-log_task "Restoring bash-it configurations..."
-
-rm -rf ~/.bash_it/enabled
-if [ -f "$backup_dir/enabled.back" ]; then
-	mv "$backup_dir/enabled.back" ~/.bash_it/enabled
-fi
-
-rm -rf ~/.bash_it/custom
-if [ -f "$backup_dir/custom.back" ]; then
-	mv "$backup_dir/custom.back" ~/.bash_it/custom
-fi
+	log_task "Restoring $HOME/$target_file from $backup_dir/home/$target_file.bak"
+	if [ -f "$backup_dir/home/$target_file.bak" ]; then
+		rm -f "$HOME/$target_file"
+		mv "$backup_dir/home/$target_file.bak" "$HOME/$target_file"
+	fi
+done
 
 # Clean up backup directory
 log_task "Cleaning up backup directory..."
