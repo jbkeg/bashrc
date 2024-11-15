@@ -33,6 +33,16 @@ Above command will install `bash it` and `basher` at $HOME directory. and symlin
 
 Enable and disable bash it plugins, completions and aliases.
 
+Set up your terminal emulator at [others](/others/)
+
+<details>
+
+<summary>Support Terminal list</summary>
+
+- Terminal.app: See [README](/others/terminal.app/README.md)
+
+</details>
+
 ### Uninstallation
 
 ```bash

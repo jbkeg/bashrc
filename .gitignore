@@ -1,3 +1,5 @@
+# Temp files
+/custom
 backup/*
 
 # General
@@ -7,7 +9,6 @@ backup/*
 
 # Icon must end with two \r
 Icon
-
 
 # Thumbnails
 ._*
