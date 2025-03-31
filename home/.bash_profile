@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Load .bashrc
-[[ -f $HOME/.bashrc ]] && source $HOME/.bashrc
+[[ -f $HOME/.bashrc ]] && source "$HOME"/.bashrc
 
 # If not running interactively, don't do anything
 case $- in

@@ -47,13 +47,6 @@ global_update() {
 		print_separator
 	}
 
-	# Function to update NPM packages globally
-	update_npm() {
-		print_message "$green" "Updating NPM packages globally..."
-		npm update -g
-		print_separator
-	}
-
 	# Function to update gcloud CLI
 	update_gcloud() {
 		print_message "$green" "Updating gcloud CLI..."
@@ -61,17 +54,15 @@ global_update() {
 		print_separator
 	}
 
-	# Function to update flutter
-	update_flutter() {
-		print_message "$green" "Upgrading flutter..."
-		fvm flutter upgrade
+	update_mise() {
+		print_message "$green" "Updating mise..."
+		mise upgrade
 		print_separator
 	}
 
 	# Function to update Rust-up
 	update_rust() {
 		print_message "$green" "Updating Rust-up..."
-		rustup self update
 		rustup update
 		print_separator
 	}
@@ -94,10 +85,9 @@ global_update() {
 	# Run all updates
 	update_homebrew
 	update_bash_it
-	update_npm
 	update_gcloud
-	update_flutter
 	update_rust
+	update_mise
 	update_app_store
 	organize_launchpad
 	print_message "$green" "Global update completed."
